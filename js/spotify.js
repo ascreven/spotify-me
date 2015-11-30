@@ -32,6 +32,13 @@ $(document).ready(function(){
 });
 
 function listResults(list) {
-  console.log(list.artists[0].name)
+  var listItems = list.artists;
+  for(i in listItems) {
+    console.log(listItems[i].name);
+  };
+
+  // list.forEach(function() {
+  //     console.log(this.artists.name + " likes ");
+  //   })
     $('ul').append('<li>' + list.artists[0].name + '</li>');
 }
