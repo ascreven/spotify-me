@@ -15,6 +15,7 @@ $(document).ready(function(){
   })
 })
 function searchByArtist(keyword) {
+  $('h2').append(keyword);
   console.log(keyword);
   var url = 'http://ws.spotify.com/search/1/artist.json?q='+keyword;
 }
