@@ -34,11 +34,12 @@ $(document).ready(function(){
 function listResults(list) {
   var listItems = list.artists;
   for(i in listItems) {
-    console.log(listItems[i].name);
+    $('ul').append('<li>' + list.artists[i].name + '</li>');
+    // console.log(listItems[i].name);
   };
 
   // list.forEach(function() {
   //     console.log(this.artists.name + " likes ");
   //   })
-    $('ul').append('<li>' + list.artists[0].name + '</li>');
+
 }
