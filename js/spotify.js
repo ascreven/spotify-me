@@ -11,11 +11,10 @@ $(document).ready(function(){
   searchFor = $( "#search-type" ).val();
   $(".submit").on("click", function() {
     searchInput = $('#search-keyword').val();
-    console.log(searchInput)
+    searchByArtist(searchInput)
   })
 })
-function searchByArtist(keyword, search) {
+function searchByArtist(keyword) {
   console.log(keyword);
-  console.log(search);
   var url = 'http://ws.spotify.com/search/1/artist.json?q='+keyword;
 }
