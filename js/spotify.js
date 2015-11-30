@@ -27,16 +27,38 @@ $(document).ready(function(){
       url: url
     }).done(function(response) {
       results = response;
-      listResults(results);
+      artistResults(results);
     }).fail(function(response){
       console.log("Ajax get request failed.");
     });
   }
 });
 
-function listResults(list) {
+function searchByTrack(keyword) {
+  var url = 'http://ws.spotify.com/search/1/track.json?q='+keyword;
+  $.ajax({
+    type: 'GET',
+    dataType: 'json',
+    url: url
+  }).done(function(response) {
+    results = response;
+    console.log(results)
+    trackResults(results);
+  }).fail(function(response){
+    console.log("Ajax get request failed.");
+  });
+};
+
+function artistResults(list) {
   var listItems = list.artists;
   for(var i in listItems) {
     $('ul').append('<li>' + list.artists[i].name + '</li>');
+  }
+}
+
+function trackResults(list) {
+  var listItems = list.tracks;
+  for(var i in listItems) {
+    $('ul').append('<li>' + list.tracks[i].name + '</li>');
   }
 }
