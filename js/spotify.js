@@ -9,13 +9,14 @@
 // }
 $(document).ready(function(){
   searchFor = $( "#search-type" ).val();
-  $(".submit").on("click", function() {
+  $(".submit").on("click", function(event) {
+    event.preventDefault();
     searchInput = $('#search-keyword').val();
     searchByArtist(searchInput)
   })
-})
+
 function searchByArtist(keyword) {
-  $('h2').append(keyword);
-  console.log(keyword);
+  $('ul').append('<li>' + keyword + '</li>');
   var url = 'http://ws.spotify.com/search/1/artist.json?q='+keyword;
 }
+})
